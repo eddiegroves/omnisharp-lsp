@@ -1,0 +1,23 @@
+* OmniSharp LSP installer
+
+Helps install the [[https://github.com/OmniSharp/omnisharp-roslyn][omnisharp LSP]] by:
+
+1. Remove any existing version in current directory.
+2. Download and unzip latest release of =omnisharp-roslyn=.
+
+Editors (in my case, Emacs with lsp-mode) need to be configured to point to
+=omnisharp-roslyn= directory.
+
+#+begin_src emacs-lisp
+(setq lsp-csharp-server-install-dir "/path/to/omnisharp-roslyn-lsp")
+#+end_src
+
+** Usage
+
+Using [[https://github.com/TekWizely/run][run]]:
+
+#+begin_src sh
+run install
+#+end_src
+
+The [[file:Runfile][install script]] is very simple and could be manully run step-by-step.

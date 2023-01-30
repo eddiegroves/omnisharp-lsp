@@ -1,0 +1,17 @@
+install:
+  # MacOS only since that's all I need at the moment
+  FILE="omnisharp-osx-x64-net6.0.tar.gz"
+
+  if [[ $(uname -m) == 'arm64' ]]; then
+    FILE="omnisharp-osx-arm64-net6.0.tar.gz"
+  fi
+
+  if [ -f "$FILE" ]; then
+    printf '%s already exists, delete it to download latest.' "$FILE"
+  else
+    curl --location -O "https://github.com/OmniSharp/omnisharp-roslyn/releases/latest/download/$FILE"
+  fi
+
+  rm -rf './latest'
+  mkdir -p './latest/omnisharp-roslyn'
+  tar -xzf "$FILE" -C './latest/omnisharp-roslyn'
